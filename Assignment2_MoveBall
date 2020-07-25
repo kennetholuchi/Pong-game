@@ -1,0 +1,82 @@
+//maxX = 1920, maxY = 1080 
+
+float screenWidth = 1920; //set to your maxX
+float screenHeight = 1080; //set to your maxY
+
+int ballX = 960; //Declare variable to hold X position of first ball
+int ballY = 540; //Declare variable to hold y position of first ball
+int ballWidth = 70; //Declare variable to hold the width of first ball
+int ballHeight = 70; //Declare variable to hold the height of first ball
+
+int ballX2 = 960; //Declare variable to hold X position of second ball
+int ballY2 = 540; //Declare variable to hold y position of second ball
+int ballWidth2 = 70; //Declare variable to hold the width of second ball
+int ballHeight2 = 70; //Declare variable to hold the height of second ball
+
+int leftPaddleX = 0; //Declare variable to hold the x position of left paddle
+int leftPaddleY = 0; //Declare variable to hold the y position of left paddle
+
+int rightPaddleX = 1870; //Declare variable to hold the x position of right paddle
+int rightPaddleY = 980; //Declare variable to hold the y position of right paddle
+
+int paddlesWidth = 50; //Declare variable to hold the width of paddles(right and left paddle) 
+int paddlesHeight = 100; //Declare variable to hold the height of paddles(right and left paddle)
+
+int leftPlayerScoreX = 1160; //Declare variable to hold the left player score x position 
+int leftplayerScoreY = 540; //Declare variable to hold the left player score y position
+
+int rightPlayerScoreX = 760; //Declare variable to hold the right player score x position
+int rightPlayerScoreY = 540; //Declare variable to hold the right player score y position
+
+int playerScoreSize = 100; //Declare variable to hold the player score size(both the left and right player score size) 
+
+void setup() //runs once
+{
+  fullScreen(); //Sets the program to run in full screen mode
+  
+}
+
+void draw() //runs forever
+{
+  background (0, 128, 0); // Sets background color to green 
+  stroke (0); // Sets the edges of the shapes to black
+  
+  fill(0);
+  rect(0, 540, 1920, 20);
+  
+  fill (128, 0, 0); //fills the rectangle maroon
+  rect (leftPaddleX, leftPaddleY, paddlesWidth , paddlesHeight ); // draws a rectangle(top left paddle) 
+  
+  fill (128, 0, 0); // fills the rectangle maroon (bottom right paddle) 
+  rect (rightPaddleX, rightPaddleY, paddlesWidth, paddlesHeight); //draws a rectangle (bottom right paddle) 
+  
+  fill (0, 0, 255); // fills the circle(ball) blue colour 
+  ellipse (ballX, ballY, ballWidth, ballHeight); //draws a circle(ball) 
+  
+  
+  fill (255, 0, 255); // fills the second circle(ball) fuchsia colour 
+  ellipse (ballX2, ballY2, ballWidth2, ballHeight2); //draws a circle(ball) 
+  
+  textSize(playerScoreSize); // sets text size(4) to 100
+  fill(255); // Sets left text(4) colour to white
+  text('4', leftPlayerScoreX, leftplayerScoreY);
+  
+  textSize(playerScoreSize); // Sets text size(4) to 100
+  fill(255); // Sets right text colour(4) to white
+  text('4', rightPlayerScoreX, rightPlayerScoreY);
+  
+  textSize(100);
+  fill(255);
+  text(": Player 2", 1260, 540);
+  
+  textSize(100);
+  fill(255);
+  text("Player 1:", 360, 540);
+  
+  ballX = ballX - 2;
+  ballY = ballY - 2;
+  
+  ballX2 = ballX2 - 2;
+  ballY2 = ballY2 + 2;
+}
+
